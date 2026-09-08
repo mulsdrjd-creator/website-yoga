@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Jadwal Pelajaran Digital | XII TJKT 2</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- Background Network -->
+<div class="network-bg">
+    <span class="node node-1"></span>
+    <span class="node node-2"></span>
+    <span class="node node-3"></span>
+    <span class="node node-4"></span>
+    <span class="node node-5"></span>
+    <span class="node node-6"></span>
+
+    <span class="connection connection-1"></span>
+    <span class="connection connection-2"></span>
+    <span class="connection connection-3"></span>
+    <span class="connection connection-4"></span>
+</div>
+
+<div class="page-container">
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+
+        <div class="brand-area">
+
+            <div class="logo-box">
+                <div class="logo-placeholder">
+                    <i class="fa-solid fa-school"></i>
+                </div>
+
+                <div class="logo-placeholder">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+            </div>
+
+            <div class="brand-text">
+                <span class="small-title">NETWORK ENGINEERING DASHBOARD</span>
+
+                <h1>
+                    JADWAL PELAJARAN
+                    <span>DIGITAL</span>
+                </h1>
+
+                <div class="class-info">
+                    <span>
+                        <i class="fa-solid fa-users"></i>
+                        XII TJKT 2
+                    </span>
+
+                    <span>
+                        <i class="fa-solid fa-calendar"></i>
+                        Tahun Ajaran 2026/2027
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Real Time -->
+        <div class="datetime-box">
+
+            <div class="day" id="currentDay">
+                Memuat...
+            </div>
+
+            <div class="clock" id="digitalClock">
+                00:00:00
+            </div>
+
+            <div class="date" id="currentDate">
+                Memuat tanggal...
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+
+        <!-- Desktop Table -->
+        <div class="schedule-table-wrapper">
+
+            <table class="schedule-table">
+
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa-regular fa-clock"></i>
+                            Waktu
+                        </th>
+
+                        <th>Senin</th>
+                        <th>Selasa</th>
+                        <th>Rabu</th>
+                        <th>Kamis</th>
+                        <th>Jumat</th>
+                    </tr>
+                </thead>
+
+                <tbody id="scheduleTableBody">
+                    <!-- Diisi otomatis oleh JavaScript -->
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- Mobile Cards -->
+        <div class="mobile-schedule" id="mobileSchedule">
+            <!-- Diisi otomatis oleh JavaScript -->
+        </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+
+        <div>
+            <strong>JADWAL PELAJARAN DIGITAL</strong>
+            <span>XII TJKT 2</span>
+        </div>
+
+        <div>
+            <span>
+                © 2026
+            </span>
+
+            <span class="footer-separator">•</span>
+
+            <span>
+                Network Engineering Dashboard
+            </span>
+        </div>
+
+    </footer>
+
+</div>
+
+
+<!-- JavaScript -->
+<script src="script.js"></script>
+```
+
+</body>
+</html>
