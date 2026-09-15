@@ -1,169 +1,850 @@
 <!DOCTYPE html>
-
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Jadwal Pelajaran Digital | XII TJKT 2</title>
+    <title>Jadwal Pelajaran Digital | XII TJKT 2</title>
 
-<!-- Google Font -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-<!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-<!-- CSS -->
-<link rel="stylesheet" href="style.css">
-```
+    <!-- CSS LAMA -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- CSS MENU TAMBAHAN -->
+    <style>
+
+        /* =====================================================
+            MENU NAVIGASI TAMBAHAN
+            Tidak mengubah CSS website lama
+        ===================================================== */
+
+        .new-menu-wrapper {
+            width: 100%;
+            margin: 18px 0 20px;
+        }
+
+        .new-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+
+            padding: 10px;
+
+            background: rgba(7, 24, 40, 0.90);
+            border: 1px solid rgba(0, 191, 255, 0.18);
+            border-radius: 14px;
+
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .new-menu-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            padding: 10px 16px;
+
+            border: 1px solid transparent;
+            border-radius: 10px;
+
+            background: transparent;
+            color: #9fb0c3;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .new-menu-button i {
+            font-size: 14px;
+        }
+
+        .new-menu-button:hover {
+            color: #ffffff;
+            background: rgba(0, 191, 255, 0.10);
+            border-color: rgba(0, 191, 255, 0.20);
+            transform: translateY(-1px);
+        }
+
+        .new-menu-button.active {
+            color: #ffffff;
+            background: rgba(0, 191, 255, 0.14);
+            border-color: rgba(0, 191, 255, 0.35);
+            box-shadow: 0 0 15px rgba(0, 191, 255, 0.08);
+        }
+
+
+        /* =====================================================
+            KONTEN MENU
+        ===================================================== */
+
+        .new-page-section {
+            display: none;
+            animation: newPageFade 0.25s ease;
+        }
+
+        .new-page-section.active {
+            display: block;
+        }
+
+        @keyframes newPageFade {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        /* =====================================================
+            CARD MENU
+        ===================================================== */
+
+        .new-content-box {
+            padding: 25px;
+            margin-bottom: 25px;
+
+            background: rgba(7, 24, 40, 0.75);
+            border: 1px solid rgba(0, 191, 255, 0.16);
+            border-radius: 16px;
+
+            backdrop-filter: blur(10px);
+        }
+
+        .new-content-title {
+            margin: 0 0 8px;
+
+            color: #ffffff;
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        .new-content-title i {
+            margin-right: 8px;
+            color: #00bfff;
+        }
+
+        .new-content-description {
+            margin: 0 0 20px;
+
+            color: #9fb0c3;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+            DATA CARD
+        ===================================================== */
+
+        .new-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .new-info-card {
+            padding: 18px;
+
+            background: rgba(15, 35, 52, 0.70);
+            border: 1px solid rgba(0, 191, 255, 0.12);
+            border-radius: 12px;
+        }
+
+        .new-info-card i {
+            color: #00bfff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .new-info-card h3 {
+            margin: 0 0 5px;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .new-info-card p {
+            margin: 0;
+            color: #9fb0c3;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+            GURU
+        ===================================================== */
+
+        .new-teacher-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .new-teacher-card {
+            padding: 18px;
+
+            background: rgba(15, 35, 52, 0.70);
+            border: 1px solid rgba(0, 191, 255, 0.12);
+            border-radius: 12px;
+
+            transition: 0.25s ease;
+        }
+
+        .new-teacher-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 191, 255, 0.30);
+        }
+
+        .new-teacher-icon {
+            width: 45px;
+            height: 45px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 12px;
+            border-radius: 50%;
+
+            background: rgba(0, 191, 255, 0.10);
+            color: #00bfff;
+        }
+
+        .new-teacher-card h3 {
+            margin: 0 0 5px;
+            color: #ffffff;
+            font-size: 15px;
+        }
+
+        .new-teacher-card p {
+            margin: 0;
+            color: #9fb0c3;
+            font-size: 13px;
+        }
+
+
+        /* =====================================================
+            DOKUMENTASI
+        ===================================================== */
+
+        .new-photo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .new-photo-placeholder {
+            min-height: 170px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px dashed rgba(0, 191, 255, 0.30);
+            border-radius: 12px;
+            background: rgba(15, 35, 52, 0.55);
+
+            color: #8195aa;
+            text-align: center;
+        }
+
+        .new-photo-placeholder i {
+            margin-bottom: 10px;
+            color: #00bfff;
+            font-size: 28px;
+        }
+
+
+        /* =====================================================
+            RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+            .new-info-grid,
+            .new-teacher-list,
+            .new-photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .new-menu {
+                justify-content: flex-start;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+            }
+
+            .new-menu-button {
+                flex: 0 0 auto;
+                padding: 9px 12px;
+                font-size: 12px;
+            }
+
+            .new-info-grid,
+            .new-teacher-list,
+            .new-photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .new-content-box {
+                padding: 18px;
+            }
+        }
+
+    </style>
 
 </head>
 
 <body>
 
-```
-<!-- Background Network -->
-<div class="network-bg">
-    <span class="node node-1"></span>
-    <span class="node node-2"></span>
-    <span class="node node-3"></span>
-    <span class="node node-4"></span>
-    <span class="node node-5"></span>
-    <span class="node node-6"></span>
+    <!-- =====================================================
+        BACKGROUND NETWORK LAMA
+    ===================================================== -->
 
-    <span class="connection connection-1"></span>
-    <span class="connection connection-2"></span>
-    <span class="connection connection-3"></span>
-    <span class="connection connection-4"></span>
-</div>
+    <div class="network-bg">
+        <span class="node node-1"></span>
+        <span class="node node-2"></span>
+        <span class="node node-3"></span>
+        <span class="node node-4"></span>
+        <span class="node node-5"></span>
+        <span class="node node-6"></span>
 
-<div class="page-container">
+        <span class="connection connection-1"></span>
+        <span class="connection connection-2"></span>
+        <span class="connection connection-3"></span>
+        <span class="connection connection-4"></span>
+    </div>
 
-    <!-- ================= HEADER ================= -->
-    <header class="header">
 
-        <div class="brand-area">
+    <div class="page-container">
 
-            <div class="logo-box">
-                <div class="logo-placeholder">
-                    <i class="fa-solid fa-school"></i>
+        <!-- =====================================================
+             HEADER LAMA
+        ===================================================== -->
+
+        <header class="header">
+
+            <div class="brand-area">
+
+                <div class="logo-box">
+                    <div class="logo-placeholder">
+                        <i class="fa-solid fa-school"></i>
+                    </div>
+                    <div class="logo-placeholder">
+                        <i class="fa-solid fa-network-wired"></i>
+                    </div>
                 </div>
 
-                <div class="logo-placeholder">
-                    <i class="fa-solid fa-network-wired"></i>
-                </div>
-            </div>
-
-            <div class="brand-text">
-                <span class="small-title">NETWORK ENGINEERING DASHBOARD</span>
-
-                <h1>
-                    JADWAL PELAJARAN
-                    <span>DIGITAL</span>
-                </h1>
-
-                <div class="class-info">
-                    <span>
-                        <i class="fa-solid fa-users"></i>
-                        XII TJKT 2
+                <div class="brand-text">
+                    <span class="small-title">
+                        NETWORK ENGINEERING DASHBOARD
                     </span>
 
-                    <span>
-                        <i class="fa-solid fa-calendar"></i>
-                        Tahun Ajaran 2026/2027
-                    </span>
+                    <h1>
+                        JADWAL PELAJARAN
+                        <span>DIGITAL</span>
+                    </h1>
+
+                    <div class="class-info">
+                        <span>
+                            <i class="fa-solid fa-users"></i>
+                            XII TJKT 2
+                        </span>
+                        <span>
+                            <i class="fa-solid fa-calendar"></i>
+                            Tahun Ajaran 2026/2027
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- REAL TIME -->
+            <div class="datetime-box">
+                <div class="day" id="currentDay">Memuat...</div>
+                <div class="clock" id="digitalClock">00:00:00</div>
+                <div class="date" id="currentDate">Memuat tanggal...</div>
+            </div>
+
+        </header>
+
+
+        <!-- =====================================================
+             MENU BARU
+        ===================================================== -->
+
+        <div class="new-menu-wrapper">
+            <nav class="new-menu">
+                <button class="new-menu-button active" data-page="beranda">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Beranda</span>
+                </button>
+
+                <button class="new-menu-button" data-page="jadwal">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span>Jadwal</span>
+                </button>
+
+                <button class="new-menu-button" data-page="guru">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <span>Guru</span>
+                </button>
+
+                <button class="new-menu-button" data-page="kelas">
+                    <i class="fa-solid fa-users"></i>
+                    <span>Kelas</span>
+                </button>
+
+                <button class="new-menu-button" data-page="dokumentasi">
+                    <i class="fa-solid fa-images"></i>
+                    <span>Dokumentasi</span>
+                </button>
+
+                <button class="new-menu-button" data-page="informasi">
+                    <i class="fa-solid fa-circle-info"></i>
+                    <span>Informasi</span>
+                </button>
+            </nav>
+        </div>
+
+
+        <!-- =====================================================
+             BERANDA
+        ===================================================== -->
+
+        <section class="new-page-section active" id="page-beranda">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-house"></i>
+                    Selamat Datang
+                </h2>
+                <p class="new-content-description">
+                    Selamat datang di Website Jadwal Pelajaran Digital XII TJKT 2 SMKN 1 Klaten.
+                </p>
+
+                <div class="new-info-grid">
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-calendar-days"></i>
+                        <h3>Jadwal Pelajaran</h3>
+                        <p>Lihat jadwal pelajaran kelas XII TJKT 2.</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                        <h3>Data Guru</h3>
+                        <p>Informasi guru dan mata pelajaran.</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-images"></i>
+                        <h3>Dokumentasi</h3>
+                        <p>Dokumentasi kegiatan kelas.</p>
+                    </div>
                 </div>
             </div>
-
-        </div>
-
-        <!-- Real Time -->
-        <div class="datetime-box">
-
-            <div class="day" id="currentDay">
-                Memuat...
-            </div>
-
-            <div class="clock" id="digitalClock">
-                00:00:00
-            </div>
-
-            <div class="date" id="currentDate">
-                Memuat tanggal...
-            </div>
-
-        </div>
-
-    </header>
+        </section>
 
 
+        <!-- =====================================================
+             JADWAL
+        ===================================================== -->
 
+        <section class="new-page-section" id="page-jadwal">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Jadwal Pelajaran
+                </h2>
+                <p class="new-content-description">
+                    Jadwal kegiatan belajar mengajar kelas XII TJKT 2 SMKN 1 Klaten.
+                </p>
 
-        <!-- Desktop Table -->
-        <div class="schedule-table-wrapper">
+                <!-- Desktop Table -->
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <i class="fa-regular fa-clock"></i>
+                                    Waktu
+                                </th>
+                                <th>Senin</th>
+                                <th>Selasa</th>
+                                <th>Rabu</th>
+                                <th>Kamis</th>
+                                <th>Jumat</th>
+                            </tr>
+                        </thead>
+                        <tbody id="scheduleTableBody">
+                            <!-- Diisi otomatis oleh JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
 
-            <table class="schedule-table">
-
-                <thead>
-                    <tr>
-                        <th>
-                            <i class="fa-regular fa-clock"></i>
-                            Waktu
-                        </th>
-
-                        <th>Senin</th>
-                        <th>Selasa</th>
-                        <th>Rabu</th>
-                        <th>Kamis</th>
-                        <th>Jumat</th>
-                    </tr>
-                </thead>
-
-                <tbody id="scheduleTableBody">
+                <!-- Mobile Cards -->
+                <div class="mobile-schedule" id="mobileSchedule">
                     <!-- Diisi otomatis oleh JavaScript -->
-                </tbody>
-
-            </table>
-
-        </div>
+                </div>
+            </div>
+        </section>
 
 
-        <!-- Mobile Cards -->
-        <div class="mobile-schedule" id="mobileSchedule">
-            <!-- Diisi otomatis oleh JavaScript -->
-        </div>
+        <!-- =====================================================
+             GURU
+        ===================================================== -->
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="footer">
+        <section class="new-page-section" id="page-guru">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    Data Guru
+                </h2>
+                <p class="new-content-description">
+                    Daftar guru yang mengajar di kelas XII TJKT 2.
+                </p>
 
-        <div>
-            <strong>JADWAL PELAJARAN DIGITAL</strong>
-            <span>XII TJKT 2</span>
-        </div>
+                <div class="new-teacher-list">
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Ibu Puji Susila Utami, S. Pd</h3>
+                        <p>Bahasa Inggris</p>
+                    </div>
 
-        <div>
-            <span>
-                © 2026
-            </span>
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Alfidiya Faiz,S.Pd,M.Pd </h3>
+                        <p>Bahasa Indonesia</p>
+                    </div>
 
-            <span class="footer-separator">•</span>
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Didik Setiyo Prayogo S.PD</h3>
+                        <p>Bahasa Jawa</p>
+                    </div>
 
-            <span>
-                Network Engineering Dashboard
-            </span>
-        </div>
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Ibu Deni Liya Astuti, S.P.</h3>
+                        <p>BK</p>
+                    </div>
 
-    </footer>
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Rodemptus Joko Pamungkas, ST</h3>
+                        <p>Konsentrasi Keahlian</p>
+                    </div>
 
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Widodo, S. Pd.</h3>
+                        <p>Matematika</p>
+                    </div>
+
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Sholikhul Amri, Pd. I., M. Pd</h3>
+                        <p>Agama</p>
+                    </div>
+
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Ibu Maya Sari, S. Kom.</h3>
+                        <p>Mapel Pilihan</p>
+                    </div>
+
+                    <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Ibu Sutarti, M Pd.</h3>
+                        <p>Pendidikan Pancasila</p>
+                    </div>
+
+                      <div class="new-teacher-card">
+                        <div class="new-teacher-icon">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3>Bapak Adam Faishal Dhiya'ulhaq,S.Pd </h3>
+                        <p>Kejuruan</p>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             KELAS
+        ===================================================== -->
+
+        <section class="new-page-section" id="page-kelas">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-users"></i>
+                    XII TJKT 2
+                </h2>
+                <p class="new-content-description">
+                    Informasi kelas Teknik Jaringan Komputer dan Telekomunikasi.
+                </p>
+
+                <div class="new-info-grid">
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-school"></i>
+                        <h3>Sekolah</h3>
+                        <p>SMKN 1 Klaten</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h3>Jurusan</h3>
+                        <p>Teknik Jaringan Komputer dan Telekomunikasi</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Kelas</h3>
+                        <p>XII TJKT 2</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-calendar"></i>
+                        <h3>Tahun Ajaran</h3>
+                        <p>2026/2027</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             DOKUMENTASI
+        ===================================================== -->
+
+        <section class="new-page-section" id="page-dokumentasi">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-images"></i>
+                    Dokumentasi Kelas
+                    <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto6.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Kegiatan 1
+    </div>
 </div>
+                </h2>
+                <p class="new-content-description">
+                    Dokumentasi kegiatan dan aktivitas kelas XII TJKT 2.
+                </p>
+
+                <div class="new-photo-grid">
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 1</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto1.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Pembelajaran
+    </div>
+</div>
+                    </div>
+
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 2</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto2.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Ijazah
+                    </div>
+
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 3</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto3.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto hari Pramuka
+                    </div>
+
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 4</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto4.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Guru Tamu
+                    </div>
+
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 5</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto5.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Kerja Kelompok
+                    </div>
+
+                    <div class="new-photo-placeholder">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Foto Kegiatan 6</span>
+                        <div class="new-photo-card" style="overflow: hidden; border-radius: 12px; background: rgba(15, 35, 52, 0.70); border: 1px solid rgba(0, 191, 255, 0.12);">
+    <img src="foto7.jpeg" alt="Foto Kegiatan 1" style="width: 100%; height: 180px; object-fit: cover; display: block;">
+    <div style="padding: 12px; color: #ffffff; font-size: 13px; text-align: center;">
+        Foto Kebersihan Kelas
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
-<!-- JavaScript -->
-<script src="script.js"></script>
-```
+        <!-- =====================================================
+             INFORMASI
+        ===================================================== -->
+
+        <section class="new-page-section" id="page-informasi">
+            <div class="new-content-box">
+                <h2 class="new-content-title">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Informasi Website
+                </h2>
+                <p class="new-content-description">
+                    Website ini dibuat sebagai media digital untuk menampilkan jadwal dan informasi kelas XII TJKT 2.
+                </p>
+
+                <div class="new-info-grid">
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-school"></i>
+                        <h3>Nama Sekolah</h3>
+                        <p>SMKN 1 Klaten</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-network-wired"></i>
+                        <h3>Program Keahlian</h3>
+                        <p>TJKT</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-users"></i>
+                        <h3>Kelas</h3>
+                        <p>XII TJKT 2</p>
+                    </div>
+
+                    <div class="new-info-card">
+                        <i class="fa-solid fa-calendar-check"></i>
+                        <h3>Tahun Ajaran</h3>
+                        <p>2026/2027</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- =====================================================
+             FOOTER LAMA
+        ===================================================== -->
+
+        <footer class="footer">
+            <div>
+                <strong>JADWAL PELAJARAN DIGITAL</strong>
+                <span>XII TJKT 2</span>
+            </div>
+
+            <div>
+                <span>© 2026</span>
+                <span class="footer-separator">•</span>
+                <span>Network Engineering Dashboard</span>
+            </div>
+        </footer>
+
+    </div>
+
+
+    <!-- JavaScript LAMA -->
+    <script src="script.js"></script>
+
+
+    <!-- =====================================================
+         JAVASCRIPT MENU TAMBAHAN
+    ===================================================== -->
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuButtons = document.querySelectorAll(".new-menu-button");
+            const pages = document.querySelectorAll(".new-page-section");
+
+            menuButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const targetPage = button.getAttribute("data-page");
+
+                    /* Hapus active dari semua tombol */
+                    menuButtons.forEach(function (item) {
+                        item.classList.remove("active");
+                    });
+
+                    /* Tambahkan active ke tombol yang dipilih */
+                    button.classList.add("active");
+
+                    /* Sembunyikan semua halaman */
+                    pages.forEach(function (page) {
+                        page.classList.remove("active");
+                    });
+
+                    /* Tampilkan halaman yang dipilih */
+                    const target = document.getElementById("page-" + targetPage);
+                    if (target) {
+                        target.classList.add("active");
+                    }
+
+                    /* Scroll ke bagian atas */
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            });
+        });
+    </script>
 
 </body>
+
 </html>
